@@ -24,8 +24,10 @@ public:
 
 	const std::string& getLogin() const;
 
-	int getPassword() const {
-		return password_;
+	int getPassword() const {
+
+		return password_;
+
 	}
 
 
@@ -33,7 +35,7 @@ private:
 
 	std::string login_;
 
-	int password{ 0 };
+	int password_{ 0 };
 
 
 

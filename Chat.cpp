@@ -46,13 +46,9 @@ int Chat::getPassword() const {
 
 void Chat::readChat() {
 	std::fstream file(user.message, std::ios::in);
-}
 
-
-auto permissions = std::filesystem::perms::group_all | std::filesystem::others_all;
-
-	std::filesystem::permissions(user.message, permissions, std::filesystem::perm_options::remove);
-
+auto permissions = std::filesystem::perms::group_all | std::filesystem::perms::others_all;
+     std::filesystem::permissions(user.message, permissions, std::filesystem::perm_options::remove);
 
 
 const std::string delimiter = ":";
@@ -87,7 +83,7 @@ if (file.is_open()) {
 
 				else if (name == "password") {
 
-					password_ = value;
+					password_ = std::stoi(value);
 				}
 
 			}
@@ -101,7 +97,7 @@ file.close();
 
 
 
-	void Chat::writeChat() {
+	void Chat::writeChat()  const {
 
 		std::fstream file(user.message, std::ios::out);
 
